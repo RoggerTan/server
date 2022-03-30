@@ -70,15 +70,15 @@ div[contenteditable=true],
 			background-color: var(--color-main-background);
 			color: var(--color-text-light);
 		}
+		&:focus-visible {
+			box-shadow: 0 0 0 2px var(--color-primary);
+		}
 	}
 	&:disabled {
 		background-color: var(--color-background-dark);
 		color: var(--color-text-maxcontrast);
 		cursor: default;
 		opacity: 0.5;
-	}
-	&:focus-visible {
-		border-width: 2px;
 	}
 	&:required {
 		box-shadow: none;

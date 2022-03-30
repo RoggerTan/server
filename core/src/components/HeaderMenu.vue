@@ -188,9 +188,8 @@ export default {
 		opacity: 1;
 	}
 
-	&__trigger:focus-active {
+	&__trigger:focus-visible {
 		outline: none;
-		margin-top: 1px !important;
 	}
 
 	&__wrapper {

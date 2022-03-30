@@ -160,12 +160,9 @@ kbd {
 				}
 			}
 			a:focus-visible {
-				border: 2px solid var(--color-primary);
 				border-radius: var(--border-radius);
+				box-shadow: var(--color-primary) inset 0 0 0 2px;
 				outline: none;
-				background-position: 12px center;
-				line-height: 40px;
-				padding: 0 10px 0 12px;
 			}
 			&.active,
 			a:active,
