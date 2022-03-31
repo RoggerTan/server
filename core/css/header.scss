@@ -239,7 +239,7 @@
 				width: $header-height;
 				height: 44px;
 				cursor: pointer;
-				opacity: 0.6;
+				opacity: 0.85;
 				padding: 0;
 				margin: 2px 0;
 
@@ -457,7 +457,7 @@ nav[role='navigation'] {
 			width: $header-height;
 			align-items: center;
 			justify-content: center;
-			opacity: .6;
+			opacity: .85;
 			// Make sure most app names don’t ellipsize
 			letter-spacing: -0.5px;
 			font-size: 12px;

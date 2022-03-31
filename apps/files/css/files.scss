@@ -1208,7 +1208,7 @@ table.dragshadow td.size {
 
 	&:focus-visible,
 	#showgridview:focus-visible + & {
-		outline: 2p2 solid var(--color-primary) !important;
+		outline: 2px solid var(--color-primary) !important;
 	}
 }
 
