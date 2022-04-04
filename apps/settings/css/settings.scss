@@ -183,6 +183,12 @@ select {
 // Button for 'Reasons to use Nextcloud in your organization'
 .development-notice {
 	text-align: center;
+	a:not(.link-button) {
+		text-decoration: underline;
+		&:hover {
+			background-color: var(--color-primary-element-lighter);
+		}
+	}
 }
 
 .link-button {

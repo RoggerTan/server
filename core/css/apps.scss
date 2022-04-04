@@ -378,13 +378,6 @@ kbd {
 			/* Needed for IE11; otherwise the button appears to the right of the
 			 * link. */
 			left: 0;
-
-			&:focus-visible {
-				opacity: 1;
-				background: none;
-				border-radius: var(--border-radius);
-				border: 2px solid var(--color-primary);
-			}
 		}
 		&:before {
 			position: absolute;
