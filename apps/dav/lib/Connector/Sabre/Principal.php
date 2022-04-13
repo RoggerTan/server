@@ -270,6 +270,7 @@ class Principal implements BackendInterface {
 		$limitEnumerationGroup = $this->shareManager->limitEnumerationToGroups();
 		$limitEnumerationPhone = $this->shareManager->limitEnumerationToPhone();
 		$allowEnumerationFullMatch = $this->shareManager->allowEnumerationFullMatch();
+		$ignoreSecondDisplayName = $this->shareManager->ignoreSecondDisplayName();
 
 		// If sharing is restricted to group members only,
 		// return only members that have groups in common
@@ -348,8 +349,9 @@ class Principal implements BackendInterface {
 					if (!$allowEnumeration) {
 						if ($allowEnumerationFullMatch) {
 							$users = $this->userManager->searchDisplayName($value, $searchLimit);
-							$users = \array_filter($users, static function (IUser $user) use ($value) {
-								return $user->getDisplayName() === $value;
+							$users = \array_filter($users, static function (IUser $user) use ($value, $ignoreSecondDisplayName) {
+								$lowerDisplayName = strtolower($user->getDisplayName());
+								return $lowerDisplayName === $value || ($ignoreSecondDisplayName && trim(preg_replace('/ \(.*\)$/', '', $lowerDisplayName)) === $value);
 							});
 						} else {
 							$users = [];
