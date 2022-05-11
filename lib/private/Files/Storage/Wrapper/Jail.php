@@ -344,6 +344,10 @@ class Jail extends Wrapper {
 		return $this->getWrapperStorage()->free_space($this->getUnjailedPath($path));
 	}
 
+	public function free_space_skip_unjail_path($path) {
+		return $this->getWrapperStorage()->free_space($path);
+	}
+
 	/**
 	 * search for occurrences of $query in file names
 	 *

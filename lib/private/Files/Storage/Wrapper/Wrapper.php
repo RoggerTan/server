@@ -334,6 +334,10 @@ class Wrapper implements \OC\Files\Storage\Storage, ILockingStorage, IWriteStrea
 		return $this->getWrapperStorage()->free_space($path);
 	}
 
+	public function free_space_skip_unjail_path($path) {
+		return $this->getWrapperStorage()->free_space_skip_unjail_path($path);
+	}
+
 	/**
 	 * search for occurrences of $query in file names
 	 *
