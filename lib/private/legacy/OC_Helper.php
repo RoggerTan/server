@@ -517,8 +517,10 @@ class OC_Helper {
 		$mount = $rootInfo->getMountPoint();
 		$storage = $mount->getStorage();
 		$sourceStorage = $storage;
+		$skipUnjailPath = false;
 		if ($storage->instanceOfStorage('\OCA\Files_Sharing\SharedStorage')) {
 			$includeExtStorage = false;
+			$skipUnjailPath = true;
 			$internalPath = $storage->getUnjailedPath($rootInfo->getInternalPath());
 		} else {
 			$internalPath = $rootInfo->getInternalPath();
@@ -545,7 +547,11 @@ class OC_Helper {
 			$quota = $sourceStorage->getQuota();
 		}
 		try {
-			$free = $sourceStorage->free_space($internalPath);
+			if ($skipUnjailPath === True) {
+				$free = $sourceStorage->free_space_skip_unjail_path($internalPath);
+			} else {
+				$free = $sourceStorage->free_space($internalPath);
+			}
 		} catch (\Exception $e) {
 			if ($path === "") {
 				throw $e;
